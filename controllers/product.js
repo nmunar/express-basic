@@ -1,5 +1,5 @@
-const { mongoUtils, dataBase } = require('../lib/utils/mongo.js');
-const COLLECTION_NAME = 'productos';
+const { mongoUtils, dataBase } = require("../lib/utils/mongo.js");
+const COLLECTION_NAME = "productos";
 
 async function getProducts() {
   const client = await mongoUtils.conn();
@@ -22,4 +22,50 @@ function insertProduct(product) {
   });
 }
 
-module.exports = [getProducts, insertProduct];
+function deleteProduct(product) {
+  return mongoUtils.conn().then( (client) => {
+/*    const requestedproduct = ''
+    try {
+      requestedproduct = await client
+        .db(dataBase)
+        .collection(COLLECTION_NAME)
+        .findOne({ idproducto: product.idproducto });
+    } catch (err) {
+      throw new Error("Product does not exists");
+    }
+*/
+    return client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .deleteOne(product)
+      .finally(() => client.close());
+  });
+}
+
+function updateProduct(product) {
+  return mongoUtils.conn().then(async (client) => {
+    return client
+      .db(dataBase)
+      .collection(COLLECTION_NAME)
+      .updateOne(
+        { idproducto: product.idproducto },
+        {
+          $set: {
+            nombreProducto: product.nombreProducto,
+            idProveedor: product.idProveedor,
+            idCategoria: product.idCategoria,
+            cantidadPorUnidad: product.cantidadPorUnidad,
+            precioUnidad: product.precioUnidad,
+            unidadesEnExistencia: product.unidadesEnExistencia,
+            unidadesEnPedido: product.unidadesEnPedido,
+            nivelNuevoPedido: product.nivelNuevoPedido,
+            suspendido: product.suspendido,
+            categoriaProducto: product.categoriaProducto,
+          },
+        }
+      )
+      .finally(() => client.close());
+  });
+}
+
+module.exports = [getProducts, insertProduct, deleteProduct, updateProduct];
