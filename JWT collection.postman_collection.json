@@ -1,0 +1,532 @@
+{
+	"info": {
+		"_postman_id": "c21bac6c-a348-4baf-8cd8-2c916da8594f",
+		"name": "JWT collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "register admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"username\":\"NicolásA\",\r\n\t\"password\":\"Hola2\",\r\n\t\"role\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login admin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\t\r\n    \"username\":\"NicolásA\",\r\n\t\"password\":\"Hola2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get productos admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3NDIwOGE4ODRkNDY3M2MwOWNlNTMiLCJ1c2VybmFtZSI6Ik5pY29sw6FzQSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgwMDgwMiwiZXhwIjoxNjA0ODA0NDAyfQ.IbiyYskzqx9rF2c_symtbh9cRLqqF98eS_A_P0-P7Uk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3031/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create productos admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3NDIwOGE4ODRkNDY3M2MwOWNlNTMiLCJ1c2VybmFtZSI6Ik5pY29sw6FzQSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgwMDgwMiwiZXhwIjoxNjA0ODA0NDAyfQ.IbiyYskzqx9rF2c_symtbh9cRLqqF98eS_A_P0-P7Uk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"idproducto\":\"78\",\"nombreProducto\":\"Salsa roja original Frankfurter\",\"idProveedor\":\"12\",\"idCategoria\":\"2\",\"cantidadPorUnidad\":\"12 cajas\",\"precioUnidad\":\"13\",\"unidadesEnExistencia\":\"32\",\"unidadesEnPedido\":\"0\",\"nivelNuevoPedido\":\"15\",\"suspendido\":\"0\",\"categoriaProducto\":\"Categoria D\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update productos admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3NDIwOGE4ODRkNDY3M2MwOWNlNTMiLCJ1c2VybmFtZSI6Ik5pY29sw6FzQSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgwMDgwMiwiZXhwIjoxNjA0ODA0NDAyfQ.IbiyYskzqx9rF2c_symtbh9cRLqqF98eS_A_P0-P7Uk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n\r\n    \"idproducto\": \"78\",\r\n    \"nombreProducto\": \"Salsa roja original-ya no- Frankfurter\",\r\n    \"idProveedor\": \"12\",\r\n    \"idCategoria\": \"2\",\r\n    \"cantidadPorUnidad\": \"12 cajas\",\r\n    \"precioUnidad\": \"13\",\r\n    \"unidadesEnExistencia\": \"32\",\r\n    \"unidadesEnPedido\": \"0\",\r\n    \"nivelNuevoPedido\": \"15\",\r\n    \"suspendido\": \"0\",\r\n    \"categoriaProducto\": \"Categoria D\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete productos admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3NDIwOGE4ODRkNDY3M2MwOWNlNTMiLCJ1c2VybmFtZSI6Ik5pY29sw6FzQSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgwMDgwMiwiZXhwIjoxNjA0ODA0NDAyfQ.IbiyYskzqx9rF2c_symtbh9cRLqqF98eS_A_P0-P7Uk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n        \"idproducto\": \"77\",\r\n        \"nombreProducto\": \"Salsa verde original Frankfurter\",\r\n        \"idProveedor\": \"12\",\r\n        \"idCategoria\": \"2\",\r\n        \"cantidadPorUnidad\": \"12 cajas\",\r\n        \"precioUnidad\": \"13\",\r\n        \"unidadesEnExistencia\": \"32\",\r\n        \"unidadesEnPedido\": \"0\",\r\n        \"nivelNuevoPedido\": \"15\",\r\n        \"suspendido\": \"0\",\r\n        \"categoriaProducto\": \"Categoria D\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"username\":\"MunarU\",\r\n\t\"password\":\"Hola2\",\r\n\t\"role\":\"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"username\":\"MunarU\",\r\n\t\"password\":\"Hola2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get productos user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3M2YxMmE4ODRkNDY3M2MwOWNlNTEiLCJ1c2VybmFtZSI6Ik11bmFyVSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjA0ODAwOTM3LCJleHAiOjE2MDQ4MDQ1Mzd9.OHpoEA87sjIl1TPSWekD_M--8FF7Gmd2MOZh4z-p01E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3031/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create productos user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3M2YxMmE4ODRkNDY3M2MwOWNlNTEiLCJ1c2VybmFtZSI6Ik11bmFyVSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjA0ODAwOTM3LCJleHAiOjE2MDQ4MDQ1Mzd9.OHpoEA87sjIl1TPSWekD_M--8FF7Gmd2MOZh4z-p01E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"idproducto\": \"77\",\r\n        \"nombreProducto\": \"Salsa verde original Frankfurter\",\r\n        \"idProveedor\": \"12\",\r\n        \"idCategoria\": \"2\",\r\n        \"cantidadPorUnidad\": \"12 cajas\",\r\n        \"precioUnidad\": \"13\",\r\n        \"unidadesEnExistencia\": \"32\",\r\n        \"unidadesEnPedido\": \"0\",\r\n        \"nivelNuevoPedido\": \"15\",\r\n        \"suspendido\": \"0\",\r\n        \"categoriaProducto\": \"Categoria D\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update productos user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3M2YxMmE4ODRkNDY3M2MwOWNlNTEiLCJ1c2VybmFtZSI6Ik11bmFyVSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjA0ODAwOTM3LCJleHAiOjE2MDQ4MDQ1Mzd9.OHpoEA87sjIl1TPSWekD_M--8FF7Gmd2MOZh4z-p01E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n\r\n    \"idproducto\": \"78\",\r\n    \"nombreProducto\": \"Salsa roja original-ya no- Frankfurter\",\r\n    \"idProveedor\": \"12\",\r\n    \"idCategoria\": \"2\",\r\n    \"cantidadPorUnidad\": \"12 cajas\",\r\n    \"precioUnidad\": \"13\",\r\n    \"unidadesEnExistencia\": \"32\",\r\n    \"unidadesEnPedido\": \"0\",\r\n    \"nivelNuevoPedido\": \"15\",\r\n    \"suspendido\": \"0\",\r\n    \"categoriaProducto\": \"Categoria D\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete productos user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3M2YxMmE4ODRkNDY3M2MwOWNlNTEiLCJ1c2VybmFtZSI6Ik11bmFyVSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjA0ODAwOTM3LCJleHAiOjE2MDQ4MDQ1Mzd9.OHpoEA87sjIl1TPSWekD_M--8FF7Gmd2MOZh4z-p01E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n        \"idproducto\": \"77\",\r\n        \"nombreProducto\": \"Salsa verde original Frankfurter\",\r\n        \"idProveedor\": \"12\",\r\n        \"idCategoria\": \"2\",\r\n        \"cantidadPorUnidad\": \"12 cajas\",\r\n        \"precioUnidad\": \"13\",\r\n        \"unidadesEnExistencia\": \"32\",\r\n        \"unidadesEnPedido\": \"0\",\r\n        \"nivelNuevoPedido\": \"15\",\r\n        \"suspendido\": \"0\",\r\n        \"categoriaProducto\": \"Categoria D\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Master",
+			"item": [
+				{
+					"name": "register master",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"username\":\"Master\",\r\n\t\"password\":\"Hola2\",\r\n\t\"role\":\"master\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login master",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"username\":\"Master\",\r\n\t\"password\":\"Hola2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  global users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3NGEzYTlhNDc0ZDJiNzRiMzVhNjEiLCJ1c2VybmFtZSI6Ik1hc3RlciIsInJvbGUiOiJtYXN0ZXIiLCJpYXQiOjE2MDQ3OTkxODIsImV4cCI6MTYwNDgwMjc4Mn0.-0K--AqNsl9RjPUj03eHaHtvAwlt6P4PdmmjvUF_tUQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"username\":\"NicolásA\",\r\n\t\"password\":\"Hola2\",\r\n\t\"role\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3031/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3031",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,17 +1,12 @@
 var express = require("express");
 var router = express.Router();
-
-var middelware = require("../lib/utils/auth.js");
-var HandlerGenerator = require("../controllers/users.js");
-/* GET home page. */
-router.get("/", middelware.checkToken, function (req, res, next) {
-  res.render("index", { title: "Express" });
+var auth = require("../lib/utils/auth.js");
+var [getUser]= require("../controllers/users.js");
+/* GET user by master role page. */
+router.get("/users", auth.checkTokenMaster, async function (req, res, next) {
+  const users = await getUser(req.body);
+  res.send(users);
 });
 
-/** Login */
-router.post("/login", async function (req, res, next) {
-  const authUser = await login(req.body);
-  res.send(authUser);
-});
 
 module.exports = router;
