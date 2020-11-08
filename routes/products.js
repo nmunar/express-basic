@@ -37,7 +37,7 @@ router.delete("/", auth.checkTokenAdmin, async function (req, res, next) {
  */
 router.put("/", auth.checkTokenAdmin, async function (req, res, next) {
   const oldProduct = await updateProduct(req.body);
-  console.warn("delete products->", oldProduct);
+  console.warn("update product->", oldProduct);
   try {
     res.send(req.body);
   } catch (err) {
